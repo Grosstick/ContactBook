@@ -1,21 +1,21 @@
-# ContactBook API
+# ContactBook
 
-A REST API for managing contacts built with **ASP.NET Core 10** and **Entity Framework Core**.
+A REST API for managing contacts, with search, filtering, and pagination. Built with ASP.NET Core 10 and Entity Framework Core.
 
 ## Features
 
-- Full CRUD operations (Create, Read, Update, Delete)
-- Search contacts by name, email, or company
-- Filter by company name
-- Pagination support
-- Swagger/OpenAPI documentation
+- **Full CRUD** — Create, Read, Update, Delete contacts
+- **Search** — Search across name, email, and company (case-insensitive)
+- **Filter** — Filter contacts by company name
+- **Pagination** — Page through results with configurable page size
+- **Swagger UI** — Interactive API documentation
 
 ## Tech Stack
 
 - ASP.NET Core 10 Web API
 - Entity Framework Core (Code First)
 - SQLite
-- Swashbuckle (Swagger UI)
+- Swagger / OpenAPI
 
 ## Getting Started
 
@@ -23,15 +23,23 @@ A REST API for managing contacts built with **ASP.NET Core 10** and **Entity Fra
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download)
 
-### Run the project
+### Setup
 
 ```bash
+# Clone the repository
+git clone https://github.com/Grosstick/ContactBook.git
+cd ContactBook
+
+# Restore packages and run
 dotnet restore
+dotnet ef database update
 dotnet run
 ```
 
 The API will be available at `http://localhost:5010`.
 Swagger UI: `http://localhost:5010/swagger`
+
+The database is seeded with 10 sample contacts on first run.
 
 ## API Endpoints
 
@@ -83,6 +91,3 @@ ContactBook/
 └── Program.cs                        # App configuration
 ```
 
-## Database
-
-The project uses SQLite — no database server setup needed. The database file (`ContactBook.db`) is created automatically on first run and seeded with 10 sample contacts.
